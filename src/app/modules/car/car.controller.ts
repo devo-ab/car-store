@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CarServices } from './car.service';
+import { CarServices, OrderServices } from './car.service';
 
 const createCar = async (req: Request, res: Response) => {
   try {
@@ -42,6 +42,22 @@ const getSingleCar = async (req: Request, res: Response) => {
   }
 };
 
+const updateCar = async (req: Request, res: Response) => {
+  try {
+    const carId = req.params.carId;
+    const updatedData = req.body;
+    const result = await CarServices.updateSingleCarData(carId, updatedData);
+
+    res.status(200).json({
+      message: 'Car updated successfully',
+      status: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const deleteCar = async (req: Request, res: Response) => {
   try {
     const carId = req.params.cardId;
@@ -56,9 +72,27 @@ const deleteCar = async (req: Request, res: Response) => {
   }
 };
 
+const createOrder = async (req: Request, res: Response) => {
+  try {
+    const orderData = req.body;
+    const result = await OrderServices.orderCar(orderData);
+    res.status(201).json({
+      message: 'Order created successfully',
+      status: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 export const CarController = {
   createCar,
   getAllCars,
   getSingleCar,
   deleteCar,
+  updateCar,
 };
+
+export const OrderController = { createOrder };
