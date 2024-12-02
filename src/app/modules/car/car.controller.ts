@@ -11,7 +11,11 @@ const createCar = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: 'Failed to created car',
+      status: false,
+      error: error,
+    });
   }
 };
 
@@ -24,7 +28,11 @@ const getAllCars = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: 'Failed to retrieved car details',
+      status: false,
+      error: error,
+    });
   }
 };
 
@@ -38,7 +46,11 @@ const getSingleCar = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: 'Failed to retrieved car details',
+      status: false,
+      error: error,
+    });
   }
 };
 
@@ -54,7 +66,11 @@ const updateCar = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: 'Failed to update car details',
+      status: false,
+      error: error,
+    });
   }
 };
 
@@ -68,7 +84,11 @@ const deleteCar = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: 'Failed to deleted car',
+      status: false,
+      error: error,
+    });
   }
 };
 
@@ -82,7 +102,11 @@ const createOrder = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: 'Failed to create car order',
+      status: false,
+      error: error,
+    });
   }
 };
 

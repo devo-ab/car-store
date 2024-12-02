@@ -1,4 +1,4 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { Car, Order } from './car.interface';
 
 // 2. Create a Schema corresponding to the document interface.
